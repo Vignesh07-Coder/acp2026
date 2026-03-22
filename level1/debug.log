@@ -1,0 +1,20 @@
+Starting program: C:\Users\VIGNESH N\Desktop\acp2026\level1\rectangle.exe 
+[New Thread 38164.0x6848]
+
+Thread 1 hit Breakpoint 1, main () at demo2.c:21
+21	    if (!safe_input(&r1, 1)) return 1;
+Undefined command: "brak".  Try "help".
+Note: breakpoint 2 also set at pc 0x7ff74a9a1584.
+Breakpoint 6 at 0x7ff74a9a1584: file demo2.c, line 37.
+
+Thread 1 hit Breakpoint 2, safe_input (rect=0x5ffe74, n=1) at demo2.c:37
+37	    printf("Enter details of Rectangle %d\n", n);
+39	    printf("Enter length: ");
+Continuing.
+
+Thread 1 hit Breakpoint 2, safe_input (rect=0x5ffe68, n=2) at demo2.c:37
+37	    printf("Enter details of Rectangle %d\n", n);
+No symbol "r1" in current context.
+Warning: 'set logging off', an alias for the command 'set logging enabled', is deprecated.
+Use 'set logging enabled off'.
+
