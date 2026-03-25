@@ -6,7 +6,7 @@ typedef struct {
     float area;
 } Rectangle;
 
-// Function prototypes
+
 void input(int n, Rectangle rects[n]);
 void calculate_area(int n, Rectangle rects[n]);
 int findLargestArea(int n, Rectangle rects[n]);

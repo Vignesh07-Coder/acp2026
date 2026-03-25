@@ -87,6 +87,6 @@ void compare_areas(Rectangle r1, Rectangle r2, Rectangle r3) {
     }
 
     else {
-        printf("Unexpected case\n"); // safety fallback
+        printf("Unexpected case\n"); 
     }
 }

@@ -1,75 +1,60 @@
 #include <stdio.h>
-#include <stdlib.h>
 
-int* create_array(int n);
-void initialize_array(int *arr, int n);
-void print_array(int *arr, int n);
-void delete_array(int **arr);
+void read_array(int n, int arr[]);
+void print_array(int n, int arr[]);
+void swap_array(int n, int a[n], int b[n]);
 
 int main() {
-    printf("Enter number of elements: ");
     int n;
-    scanf("%d", &n);
-
-    if(n <= 0){
-        printf("Invalid array size!");
-        return 0;
-    }
-    int arr;
-    arr = create_array(n);
-
-    if(arr == NULL){
-        printf("Memory allocation failed!");
-        return 0;
+    printf("Enter the no of elements: ");
+    
+    // Corrected validation: removed the double scanf calls
+    while (scanf("%d", &n) != 1 || n <= 0) {
+        printf("Invalid input. Enter a positive integer: ");
+        while(getchar() != '\n'); // Clear the input buffer
     }
 
-    printf("Enter %d integers:\n", n);
-    initialize_array(arr, n);
+    int arr1[n], arr2[n];
 
-    printf("Array elements are:\n");
-    print_array(arr, n);
+    printf("\nEnter %d elements for Array 1:\n", n);
+    read_array(n, arr1);
 
-    delete_array(&arr);
+    printf("\nEnter %d elements for Array 2:\n", n);
+    read_array(n, arr2);
 
-    if(arr == NULL)
-        printf("\nMemory successfully freed and pointer set to NULL.");
+    printf("\nArray 1 before swap: ");
+    print_array(n, arr1);
+    printf("\nArray 2 before swap: ");
+    print_array(n, arr2);
+
+    swap_array(n, arr1, arr2);
+
+    printf("\n\nArray 1 after swap: ");
+    print_array(n, arr1);
+    printf("\nArray 2 after swap: ");
+    print_array(n, arr2);
+    printf("\n");
 
     return 0;
 }
 
-int* create_array(int n) {
-    // Allocate memory dynamically for n integers
-    int *arr= (int *)malloc(n * sizeof(int));
-    if(arr == NULL){
-        return NULL;
-    }
-    for(int i=0; i<n; i++){
-        arr[i] = 0;
-    }
-    return arr;
-    // Return the pointer to the allocated memory
-    
-}
-
-void initialize_array(int *arr, int n) {
-    // Write code here to read n integers into the array
-    for(int i=0; i<n; i++){
+void read_array(int n, int arr[]) {
+    for (int i = 0; i < n; i++) {
         scanf("%d", &arr[i]);
     }
 }
 
-void print_array(int *arr, int n) {
-    // Write code here to print array elements separated by space
-    for(int i=0; i<n; i++){
+void print_array(int n, int arr[]) {
+    for (int i = 0; i < n; i++) {
         printf("%d ", arr[i]);
     }
 }
 
-void delete_array(int **arr) {
-    // Write code here to free the memory
-    if(arr != NULL && *arr != NULL){
-        free(*arr);
-        *arr = NULL;
+void swap_array(int n, int a[n], int b[n]) {
+    for (int i = 0; i < n; i++) {
+        
+        int temp = a[i];
+        a[i] = b[i];
+        b[i] = temp;
     }
-    // Set the pointer to NULL to avoid dangling pointer
 }
